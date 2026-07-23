@@ -1,0 +1,15 @@
+{
+  "id": "smart-glove",
+  "category": "hw",
+  "title": "Smart Glove",
+  "subtitle": "Physical Computing",
+  "date": "2020",
+  "thumbnail": "img/portfolio/smartglove.png",
+  "image": "img/portfolio/smartglovepaper.png",
+  "description": "Arduino와 센서를 활용해 블루투스 키보드, 리모컨, 시계 기능을 구현한 장갑형 인터페이스입니다. RTC, IR 통신과 인터럽트 기반 센서 통합을 담당했습니다.",
+  "tags": [
+    "Arduino",
+    "Sensors",
+    "IR"
+  ]
+}
