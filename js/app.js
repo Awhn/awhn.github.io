@@ -8,6 +8,20 @@
   var projects = [];
   var activeFilter = 'all';
   var categoryLabels = { hw: 'HARDWARE', be: 'BACKEND', ai: 'AI' };
+  var pointerFrame = 0;
+
+  function movePointerGlow(event) {
+    if (pointerFrame) return;
+    pointerFrame = requestAnimationFrame(function () {
+      root.style.setProperty('--pointer-x', event.clientX + 'px');
+      root.style.setProperty('--pointer-y', event.clientY + 'px');
+      pointerFrame = 0;
+    });
+  }
+
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    window.addEventListener('pointermove', movePointerGlow, { passive: true });
+  }
 
   function activateTab(name, updateHash) {
     document.getElementById('workspace').dataset.active = name;
@@ -97,8 +111,13 @@
   function openProject(id) {
     var project = projects.find(function (item) { return item.id === id; });
     if (!project) return;
+    var links = Array.isArray(project.links) ? project.links : [];
+    var linkMarkup = links.length ? '<div class="project-links">' + links.map(function (link) {
+      var icon = link.type === 'document' ? 'file-text-o' : 'external-link';
+      return '<a class="jelly-button primary project-link" href="' + link.url + '" target="_blank" rel="noopener noreferrer"><i class="fa fa-' + icon + '" aria-hidden="true"></i>' + link.label + '</a>';
+    }).join('') + '</div>' : '';
     document.getElementById('dialog-content').innerHTML = '<div class="dialog-project-card"><img class="dialog-thumb" src="' + project.image + '" alt="' + project.title + '">' +
-      '<div class="dialog-body"><p class="eyebrow"><span></span>' + categoryLabels[project.category] + ' · ' + project.date + '</p><h2>' + project.title + '</h2><p>' + project.description + '</p><div class="tag-list">' + project.tags.map(function (tag) { return '<span>' + tag + '</span>'; }).join('') + '</div></div></div>';
+      '<div class="dialog-body"><p class="eyebrow"><span></span>' + categoryLabels[project.category] + ' · ' + project.date + '</p><h2>' + project.title + '</h2><p>' + project.description + '</p><div class="tag-list">' + project.tags.map(function (tag) { return '<span>' + tag + '</span>'; }).join('') + '</div>' + linkMarkup + '</div></div>';
     document.getElementById('project-dialog').showModal();
   }
 
