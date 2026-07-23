@@ -10,6 +10,7 @@
   var categoryLabels = { hw: 'HARDWARE', be: 'BACKEND', ai: 'AI' };
 
   function activateTab(name, updateHash) {
+    document.getElementById('workspace').dataset.active = name;
     tabs.forEach(function (tab) {
       var selected = tab.dataset.tab === name;
       tab.classList.toggle('is-active', selected);
@@ -66,8 +67,8 @@
     }
     grid.innerHTML = visible.map(function (project) {
       return '<button class="project-card jelly-card" type="button" data-project="' + project.id + '">' +
-        '<span class="project-thumb"><img src="' + project.thumbnail + '" alt=""><span class="project-category">' + categoryLabels[project.category] + '</span></span>' +
-        '<span class="project-info"><small>' + project.date + ' · ' + project.category.toUpperCase() + '</small><h3>' + project.title + '</h3><p>' + project.subtitle + '</p></span></button>';
+        '<span class="project-info"><span class="project-category">' + categoryLabels[project.category] + '</span><small>' + project.date + '</small><h3>' + project.title + '</h3><p>' + project.subtitle + '</p><span class="project-open">파일 열기 <i class="fa fa-arrow-right" aria-hidden="true"></i></span></span>' +
+        '<span class="project-thumb"><img src="' + project.thumbnail + '" alt=""><span class="project-file-icon"><i class="fa fa-file-image-o" aria-hidden="true"></i></span></span></button>';
     }).join('');
     grid.querySelectorAll('[data-project]').forEach(function (card) {
       card.addEventListener('click', function () { openProject(card.dataset.project); });
@@ -96,8 +97,8 @@
   function openProject(id) {
     var project = projects.find(function (item) { return item.id === id; });
     if (!project) return;
-    document.getElementById('dialog-content').innerHTML = '<img class="dialog-hero" src="' + project.image + '" alt="' + project.title + '">' +
-      '<div class="dialog-body"><p class="eyebrow"><span></span>' + categoryLabels[project.category] + ' · ' + project.date + '</p><h2>' + project.title + '</h2><p>' + project.description + '</p><div class="tag-list">' + project.tags.map(function (tag) { return '<span>' + tag + '</span>'; }).join('') + '</div></div>';
+    document.getElementById('dialog-content').innerHTML = '<div class="dialog-project-card"><img class="dialog-thumb" src="' + project.image + '" alt="' + project.title + '">' +
+      '<div class="dialog-body"><p class="eyebrow"><span></span>' + categoryLabels[project.category] + ' · ' + project.date + '</p><h2>' + project.title + '</h2><p>' + project.description + '</p><div class="tag-list">' + project.tags.map(function (tag) { return '<span>' + tag + '</span>'; }).join('') + '</div></div></div>';
     document.getElementById('project-dialog').showModal();
   }
 
