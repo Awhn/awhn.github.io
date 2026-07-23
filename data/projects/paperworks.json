@@ -1,0 +1,15 @@
+{
+  "id": "paperworks",
+  "category": "be",
+  "title": "Paperworks Website",
+  "subtitle": "Backend · Web",
+  "date": "2023",
+  "thumbnail": "img/portfolio/paperworksweb.png",
+  "image": "img/portfolio/paperworkswebdetail.png",
+  "description": "가상의 게임회사 Paperworks를 위한 웹사이트입니다. Django로 로그인, 회원 관리, 게임 데이터베이스와 코멘트 기능을 구현했습니다.",
+  "tags": [
+    "Python",
+    "Django",
+    "Database"
+  ]
+}

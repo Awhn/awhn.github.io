@@ -1,0 +1,15 @@
+{
+  "id": "watering-can",
+  "category": "hw",
+  "title": "Smart Watering Can",
+  "subtitle": "3D Printing · Physical Computing",
+  "date": "2021",
+  "thumbnail": "img/portfolio/ahead.png",
+  "image": "img/portfolio/aheadfull.png",
+  "description": "급수량과 마지막 급수 시간을 안내하는 스마트 물뿌리개입니다. 3D 프린팅 몸체, 센서 통합, LCD 및 AI TTS 안내 기능을 구현했습니다.",
+  "tags": [
+    "3D Printing",
+    "Arduino",
+    "TTS"
+  ]
+}

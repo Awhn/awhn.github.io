@@ -1,0 +1,15 @@
+{
+  "id": "laptop-angle",
+  "category": "ai",
+  "title": "Laptop Angle Adjuster",
+  "subtitle": "Computer Vision · Hardware",
+  "date": "2023",
+  "thumbnail": "img/portfolio/turtle.png",
+  "image": "img/portfolio/turtlefull.jpg",
+  "description": "사용자의 자세를 인식하고 노트북 각도를 조절해 거북목을 예방하는 장치입니다. Teachable Machine과 p5.js로 자세 데이터를 제어 장치에 전달합니다.",
+  "tags": [
+    "Computer Vision",
+    "p5.js",
+    "Arduino"
+  ]
+}
