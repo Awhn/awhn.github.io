@@ -71,3 +71,8 @@ ABOUT 변경
   
 
 이미지와 세부 내용을 포함한 각각 프로젝트 내용을 추가하였습니다.
+## 현재 콘텐츠 구조
+
+페이지는 홈, 스킬, 프로젝트, 연락 탭으로 구성됩니다. 프로젝트 데이터는 `data/projects/`의 JSON 파일에서 불러옵니다. 새 프로젝트를 추가하는 방법은 [`data/projects/README.md`](data/projects/README.md)를 참고하세요.
+
+인터랙션 컴포넌트는 [Jelly UI](https://jelly-ui.com)의 탄성 있는 실루엣과 부드러운 눌림 피드백을 정적 사이트에 맞는 CSS로 구현했습니다.
